@@ -11,6 +11,9 @@ export default function App() {
         <p>
           <Link to="/flash-card"> Flash Card</Link>
         </p>
+        <p>
+          <Link to="/accordion"> Accordion</Link>
+        </p>
       </div>
     </>
   );
