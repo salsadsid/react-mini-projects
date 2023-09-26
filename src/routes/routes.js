@@ -3,6 +3,7 @@ import App from "../App";
 import TravelList from "../projects/TravelList/TravelList";
 import FlashCard from "../projects/FlashCard/FlashCard";
 import Accordion from "../projects/Accordion/Accordion";
+import Steps from "../projects/Steps/Steps";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "accordion",
     element: <Accordion></Accordion>,
+  },
+  {
+    path: "steps",
+    element: <Steps></Steps>,
   },
 ]);
 

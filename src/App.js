@@ -14,6 +14,9 @@ export default function App() {
         <p>
           <Link to="/accordion"> Accordion</Link>
         </p>
+        <p>
+          <Link to="/steps"> Steps</Link>
+        </p>
       </div>
     </>
   );
