@@ -15,20 +15,40 @@ const faqs = [
   },
 ];
 const Accordion = () => {
+  const [curOpen, setIsOpen] = useState(null);
   return (
     <div className={styles.accordion}>
       {faqs.map((q, i) => (
-        <AccordionItem num={i} title={q.title} text={q.text}></AccordionItem>
+        <AccordionItem
+          curOpen={curOpen}
+          onOpen={setIsOpen}
+          num={i}
+          title={q.title}
+        >
+          {q.text}
+        </AccordionItem>
       ))}
+      <AccordionItem
+        curOpen={curOpen}
+        onOpen={setIsOpen}
+        num={22}
+        title="Test 1"
+      >
+        <p>Allow React Developer to:</p>
+        <ul>
+          <li>Break up into components</li>
+          <li>Make component reusable like this one</li>
+          <li>Place State efficiently</li>
+        </ul>
+      </AccordionItem>
     </div>
   );
 };
 
-function AccordionItem({ num, title, text }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function AccordionItem({ num, title, children, curOpen, onOpen }) {
+  const isOpen = num === curOpen;
   const handleToggle = () => {
-    setIsOpen((isOpen) => !isOpen);
+    onOpen(isOpen ? null : num);
   };
   return (
     <div
@@ -38,7 +58,7 @@ function AccordionItem({ num, title, text }) {
       <p className={styles.number}>{num > 9 ? num + 1 : `0${num + 1}`}</p>
       <p className={styles.title}>{title}</p>
       <p className={styles.icon}>{isOpen ? "+" : "-"}</p>
-      {isOpen && <div className={styles.content}>{text}</div>}
+      {isOpen && <div className={styles.content}>{children}</div>}
     </div>
   );
 }
