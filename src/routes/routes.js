@@ -4,6 +4,7 @@ import TravelList from "../projects/TravelList/TravelList";
 import FlashCard from "../projects/FlashCard/FlashCard";
 import Accordion from "../projects/Accordion/Accordion";
 import Steps from "../projects/Steps/Steps";
+import EatNSplit from "../projects/EatNSplit/EatNSplit";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "steps",
     element: <Steps></Steps>,
+  },
+  {
+    path: "eat-n-split",
+    element: <EatNSplit></EatNSplit>,
   },
 ]);
 

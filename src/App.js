@@ -17,6 +17,9 @@ export default function App() {
         <p>
           <Link to="/steps"> Steps</Link>
         </p>
+        <p>
+          <Link to="/eat-n-split"> EatNSplit</Link>
+        </p>
       </div>
     </>
   );
