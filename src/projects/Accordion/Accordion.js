@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Accordion.module.css";
+import { Link } from "react-router-dom";
 const faqs = [
   {
     title: "Where are these chairs assembled?",
@@ -18,6 +19,9 @@ const Accordion = () => {
   const [curOpen, setIsOpen] = useState(null);
   return (
     <div className={styles.accordion}>
+      <Link to="/" className="home-button">
+        🏠
+      </Link>
       {faqs.map((q, i) => (
         <AccordionItem
           curOpen={curOpen}

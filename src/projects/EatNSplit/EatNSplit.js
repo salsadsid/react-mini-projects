@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./EatNSplit.module.css";
+import { Link } from "react-router-dom";
 const initialFriends = [
   {
     id: 118836,
@@ -43,8 +44,22 @@ const EatNSplit = () => {
     setSelectedFriend((cur) => (cur?.id === friend.id ? null : friend));
     setShowAddFriend(false);
   }
+
+  function handleSpiltBill(value) {
+    setFriends((friends) =>
+      friends.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
+    setSelectedFriend(null);
+  }
   return (
     <div className={styles.eatnsplit}>
+      <Link to="/" className="home-button">
+        🏠
+      </Link>
       <div className={styles.app}>
         <div className={styles.sidebar}>
           <FriendList
@@ -59,7 +74,12 @@ const EatNSplit = () => {
             {showAddFriend ? "Close" : `Add Friend`}
           </Button>
         </div>
-        {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
+        {selectedFriend && (
+          <FormSplitBill
+            selectedFriend={selectedFriend}
+            onSplitBill={handleSpiltBill}
+          />
+        )}
       </div>
     </div>
   );
@@ -146,13 +166,19 @@ function FormAddFriend({ onAddFriend }) {
   );
 }
 
-function FormSplitBill({ selectedFriend }) {
+function FormSplitBill({ selectedFriend, onSplitBill }) {
   const [bill, setBill] = useState("");
   const [paidByUser, setPaidByUser] = useState("");
   const paidByFriend = bill ? bill - paidByUser : "";
   const [whoIsPaying, setWhoIsPaying] = useState("user");
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!bill || !paidByUser) return;
+
+    onSplitBill(whoIsPaying === "user" ? paidByFriend : -paidByUser);
+  }
   return (
-    <form className={styles.formsplitbill}>
+    <form className={styles.formsplitbill} onSubmit={handleSubmit}>
       <h2>Split a bill with {selectedFriend.name}</h2>
 
       <label>💰 Bill Value</label>

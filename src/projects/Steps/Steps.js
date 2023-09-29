@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Steps.module.css";
+import { Link } from "react-router-dom";
 
 const messages = [
   "Learn React ⚛️",
@@ -22,6 +23,9 @@ const Steps = () => {
 
   return (
     <>
+      <Link to="/" className="home-button">
+        🏠
+      </Link>
       <button className={styles.close} onClick={handleClose}>
         {open ? "❌" : "📂"}
       </button>

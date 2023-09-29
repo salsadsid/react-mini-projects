@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 const questions = [
   {
     id: 3457,
@@ -40,6 +41,9 @@ const FlashCard = () => {
   };
   return (
     <>
+      <Link to="/" className="home-button">
+        🏠
+      </Link>
       <h1>🧑‍🏫 Flashcard 🏫</h1>
       <div className="flashcards">
         {questions.map((question) => (

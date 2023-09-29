@@ -3,6 +3,7 @@ import Logo from "./components/Logo";
 import Form from "./components/Form";
 import PackingList from "./components/PackingList";
 import Stats from "./components/Stats";
+import { Link } from "react-router-dom";
 
 const TravelList = () => {
   const [items, setItems] = useState([
@@ -31,6 +32,9 @@ const TravelList = () => {
   };
   return (
     <div className="app">
+      <Link to="/" className="home-button">
+        🏠
+      </Link>
       <Logo />
       <Form onAddItem={handleAddItem} />
       <PackingList

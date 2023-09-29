@@ -57,7 +57,40 @@ body {
   display: grid;
   grid-template-rows: auto auto 1fr auto;
 }
+.app-dir {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 40px;
+  height: 58vh;
+}
 
+.app-name a {
+  text-decoration: none;
+  color: #5a3e2b;
+  font-family: "Quicksand";
+  font-weight: 500;
+  height: 200px;
+  width: 250px;
+  border: 1px solid #e7e7e7;
+  background-color: #f7f7f7;
+  border-radius: 7px;
+  aspect-ratio: 2 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+}
+.app-name a:hover {
+  border: 1px solid #e03131;
+  background-color: #e03131;
+  color: #fff;
+  font-weight: bold;
+}
 h1 {
   text-align: center;
   background-color: #f4a226;
@@ -69,7 +102,27 @@ h1 {
   letter-spacing: -5px;
   padding: 2.4rem 0;
 }
-
+.home-button {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 2px solid #5a3e2b;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 30px;
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  background-color: #f7f7f7;
+}
+.home-button:hover {
+  background-color: #dedcdc;
+}
+.app-footer {
+  cursor: pointer;
+}
+.app-footer:hover {
+  color: #5a3e2b;
+}
 .add-form {
   background-color: #e5771f;
   padding: 2.8rem 0;

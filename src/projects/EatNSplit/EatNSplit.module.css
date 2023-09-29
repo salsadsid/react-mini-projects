@@ -142,7 +142,7 @@ label::first-letter {
 .eatnsplit_input,
 select {
   font-family: inherit;
-  color: inherit;
+  color: black;
   font-size: 1.5rem;
   padding: 0.7rem;
   text-align: center;
